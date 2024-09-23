@@ -1,0 +1,11 @@
+<h3>new-users</h3>
+
+<form [formGroup]="form">
+  <label >name </label>
+  <input type="text" formControlName="name" placeholder="name" maxlength="15">
+  <br>
+  <label >last-name </label>
+  <input type="text" formControlName="lastName" placeholder="last name" maxlength="15">
+  <br>
+  <button (click)="onSubmit()"  type="submit">Submit</button>
+</form>

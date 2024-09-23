@@ -1,0 +1,31 @@
+<!-- <h2>Main</h2>
+
+<form [formGroup]="form" >
+  <label >Nombre</label>
+  <input type="text" formControlName="nombre" placeholder="nombre" maxlength="12">
+
+  <button (click)="onSubmit()" type="submit">Submit</button>
+</form>
+
+
+<app-header nombre="nombreEnHeader" (envio)="getMessage($event)"></app-header>
+
+<br><br>
+
+<button (click)="operate(false)">--</button>
+{{contador}}
+<button (click)="operate(true)">++</button>
+
+
+@if(contador > 10){
+  <p>Superaste el límite de 10!</p>
+}
+
+
+@for(nombre of nombres; track nombre){
+  <p>{{nombre}}</p>
+}
+
+<button (click)="navigate('')">Go to users!</button> -->
+
+<router-outlet></router-outlet>

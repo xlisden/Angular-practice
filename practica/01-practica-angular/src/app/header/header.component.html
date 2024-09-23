@@ -1,0 +1,11 @@
+<p>header works!</p>
+<p>Nombre: {{apellido}}</p>
+
+<form [formGroup]="form" >
+  <label >Apellido</label>
+  <input type="text" formControlName="apellido" placeholder="apellido">
+
+  <button (click)="onSubmit()" type="submit">Submit</button>
+</form>
+
+
