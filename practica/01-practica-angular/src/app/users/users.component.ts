@@ -23,7 +23,7 @@ export class UsersComponent {
   }
 
   addUser(user: User){
-    console.log(user);
+    console.table(user);
     this.usersList.push(user);
   }
 
@@ -34,5 +34,6 @@ export class UsersComponent {
   deleteLastUser(){
     console.log(this.usersList.pop());
   }
+
 
 }
