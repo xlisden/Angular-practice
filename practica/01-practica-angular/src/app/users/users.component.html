@@ -1,15 +1,17 @@
 <h2>users</h2>
 
-<button (click)="navigate('new-users'); showNewUser(true)">add user</button>
+<button (click)="navigate('new-users');">add user</button>
 
-<!-- <router-outlet></router-outlet> -->
 
-<app-new-users *ngIf="willShowNewUserForm" (add)="addUser($event); showNewUser(false)" ></app-new-users>
+<!-- <app-new-users (add)="addUser($event); " ></app-new-users> -->
 
 <br><br>
 <table>
   @if(usersList.length > 1){
-
+    <tr>
+      <td > <h4> nombre</h4> </td>
+      <td> <h4> apellido </h4> </td>
+    </tr>
     @for(u of usersList; track u.lastName){
       <tr>
         <td>{{u.name}}</td>
@@ -24,3 +26,4 @@
   <button (click)="deleteLastUser(); ">delete last user</button>
 }
 
+<router-outlet></router-outlet>

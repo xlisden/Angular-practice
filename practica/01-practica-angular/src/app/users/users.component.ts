@@ -4,6 +4,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { NewUsersComponent } from "../new-users/new-users.component";
 import { User } from '../interfaces/user.interface';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -13,10 +14,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  private router = inject(Router);
-  usersList: Array<User> = [];
 
-  willShowNewUserForm = false;
+  private router = inject(Router);
+  private userService = inject(UserService);
+  usersList: Array<User> = [];
 
   navigate(route: string){
     this.router.navigateByUrl('users/' + route);
@@ -27,13 +28,12 @@ export class UsersComponent {
     this.usersList.push(user);
   }
 
-  showNewUser(s: boolean){
-    this.willShowNewUserForm = s;
-  }
-
   deleteLastUser(){
     console.log(this.usersList.pop());
   }
 
+  ngOnInit(): void{
+    this.usersList = this.userService.getUsers();
+  }
 
 }
