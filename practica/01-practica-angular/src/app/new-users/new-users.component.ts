@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user.interface';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-new-users',
@@ -11,6 +12,8 @@ import { User } from '../interfaces/user.interface';
   styleUrl: './new-users.component.scss'
 })
 export class NewUsersComponent {
+
+  private userService = inject(UserService);
   private fb = inject(FormBuilder);
   private router = inject(Router);
   @Output() add = new EventEmitter<User>();
@@ -21,10 +24,9 @@ export class NewUsersComponent {
   })
 
   onSubmit(){
-    this.add.emit({
-      name: this.form.get('name')?.value,
-      lastName: this.form.get('lastName')?.value,
-    })
+    const newUser: User = this.form.value;
+    this.userService.addUser(newUser);
+    this.add.emit(newUser);
     this.router.navigateByUrl('users');
   }
 

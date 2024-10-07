@@ -1,0 +1,39 @@
+REDUX
+- Patrón de manejo de la información
+- ¿Cuál es el estado?
+- Aplicable para Angular, React, etc.
+- Toda la data ya se encuentra en una estructura.
+- STORE no se modifica de forma directa, y toda la información se encuentra aquí.
+- El valor actual de la app es STATE
+- Un nuevo estado es una nueva acción más un viejo estado. La acción describe el evento, más no lo dispara
+- reduce(acción, viejo estado)
+	ACCIÓN ->
+			 REDUCE() -> STATE 
+	VIEJO ESTADO -> 	       |
+	     ^			       |
+	     |--------------------------
+
+PATRONES
+- ACTIONS -> la única fuente de interacción. Se buscan que sean los más simples posibles
+	- type (obligatorio)
+	- payload (opcional)
+- REDUCERS -> función que recibe dos argumentos (oldState, action) y retorna un estado
+- STATE -> es sólo lectura. Funciones prohibidas: Push, manipulación directa del oldState o objetos
+- STORE -> objeto que contiene el estado de la aplicación, cuenta con getState(), dispatch(action) crea un nuevo estado, subscribe() permite modificar 
+
+
+
+
+
+
+
+
+
+
+USE [Acceso]
+INSERT INTO Libroes (Id, Nombre, Descripcion, Precio, Activo)
+VALUES ('07dd0326-5ad0-4f0a-a8dd-e5841dfa8f56', 'Cien años de soledad', 'Historia de la familia Buendía en Macondo.', 19.99, 1),
+       ('21f7515a-f7d1-4d82-a056-65e9d017c640', 'Don Quijote de la Mancha', 'Aventuras de un noble que se convierte en caballero andante.', 15.50, 1),
+       ('eed0e0cf-af03-4ee3-aa45-3b1b419d7aaa', 'El amor en los tiempos del cólera', 'Amor entre Fermina Daza y Florentino Ariza a lo largo de décadas.', 18.75, 1),
+       ('b8c9b7e8-db68-4a6f-ab16-574d9bdf2661', '1984', 'Novela distópica de una sociedad totalitaria bajo la vigilancia del Gran Hermano.', 14.99, 1),
+       ('21b768f3-c9ca-42c6-a30c-a317bdd9b845', 'La sombra del viento', 'Descubrimiento de un misterioso libro en la Barcelona de posguerra.', 17.50, 1);

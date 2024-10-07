@@ -1,0 +1,16 @@
+<h2>Gi Characters</h2>
+<hr>
+
+<div class="row">
+
+
+  <div class="col">
+    <gi-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></gi-list>
+  </div>
+
+  <div class="col">
+    <gi-add-character (onNewCharacter)="onNewCharacter($event)"></gi-add-character>
+  </div>
+
+</div>
+
